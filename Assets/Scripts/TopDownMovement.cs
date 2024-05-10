@@ -15,6 +15,7 @@ public class TopDownMovement : MonoBehaviour
         // controller랑 TopDownMovement랑 같은 GameObject에 있다라는 가정
         controller = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
+
     }
 
     private void Start()

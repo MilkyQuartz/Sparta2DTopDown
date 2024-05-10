@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c10bfe578e7818f4ebd4cce5f4b77a27
+guid: 83388e4e920bfc24697964bdd347425e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,10 +149,10 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MyCha2_0
+      name: MyChaFix_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 1
         width: 12
         height: 16
@@ -163,17 +163,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0234656946a66694a819a06e05e7f61d
-      internalID: 825128246
+      spriteID: 616fddd001efe0a43be9afa87a39bdb4
+      internalID: -340157594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MyCha2_1
+      name: MyChaFix_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 17
         y: 0
         width: 12
         height: 17
@@ -184,17 +184,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ed34cd9b5d54bc42946c233cf626d9e
-      internalID: 1107252597
+      spriteID: 0a993dd3125d4b44b9109bca3354b567
+      internalID: -623636691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MyCha2_2
+      name: MyChaFix_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 33
         y: 0
         width: 12
         height: 17
@@ -205,19 +205,82 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01dbed6d028c5f04c8c5e36a5bbf62c2
-      internalID: -1143251143
+      spriteID: 23aecd35cec688b4a96e1ba91a0d9a19
+      internalID: -1670033787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MyCha2_3
+      name: MyChaFix_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ff35ac4e20a7143b5b568a9252a747
+      internalID: 1568093110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyChaFix_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33beeabfc6ed40f4196753981b379261
+      internalID: 1823440103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyChaFix_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1e97efbf0d43b442bdd53332f766718
+      internalID: -1955339602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyChaFix_6
       rect:
         serializedVersion: 2
         x: 96
         y: 1
-        width: 12
+        width: 14
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -226,20 +289,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fd9532277f01a4478b21373b74001f5
-      internalID: -144269644
+      spriteID: f05649432d5387c49991eb41f6902ea6
+      internalID: -41242597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MyCha2_4
+      name: MyChaFix_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d93472d5725396489ccb54497b2d5fe
+      internalID: -1119046222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyChaFix_8
       rect:
         serializedVersion: 2
         x: 128
-        y: 0
-        width: 12
-        height: 17
+        y: 1
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,38 +331,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6165ffd7be3149b4892c07d0e3ab5861
-      internalID: -1365781
+      spriteID: 1a065996809e65e419c443fbacf48bf2
+      internalID: 671202170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MyCha2_5
+      name: MyChaFix_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 1
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9529f9662c9369e4893a09af523e5785
+      internalID: -1217312382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MyChaFix_10
       rect:
         serializedVersion: 2
         x: 162
-        y: 0
-        width: 12
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fdfd9f59d8e8c94d9575004b6f94780
-      internalID: -1378214021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MyCha2_6
-      rect:
-        serializedVersion: 2
-        x: 191
         y: 1
         width: 14
         height: 16
@@ -289,17 +373,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e905e9f40025874c8b98d8608919542
-      internalID: -886101027
+      spriteID: fcc6d90969a5e8d47b969602985eabf5
+      internalID: 25605607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MyCha2_7
+      name: MyChaFix_11
       rect:
         serializedVersion: 2
-        x: 223
+        x: 178
         y: 1
         width: 14
         height: 16
@@ -310,29 +394,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4b7a5bf564f2614aa60f6cf06315b36
-      internalID: 1298941524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MyCha2_8
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 1
-        width: 14
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ad59f3c7ffe78847bcf44ad404699d8
-      internalID: 743899307
+      spriteID: a3252379442f8114abcd19ff1be41541
+      internalID: -1701505787
       vertices: []
       indices: 
       edges: []
@@ -348,15 +411,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MyCha2_0: 825128246
-      MyCha2_1: 1107252597
-      MyCha2_2: -1143251143
-      MyCha2_3: -144269644
-      MyCha2_4: -1365781
-      MyCha2_5: -1378214021
-      MyCha2_6: -886101027
-      MyCha2_7: 1298941524
-      MyCha2_8: 743899307
+      MyChaFix_0: -340157594
+      MyChaFix_1: -623636691
+      MyChaFix_10: 25605607
+      MyChaFix_11: -1701505787
+      MyChaFix_2: -1670033787
+      MyChaFix_3: 1568093110
+      MyChaFix_4: 1823440103
+      MyChaFix_5: -1955339602
+      MyChaFix_6: -41242597
+      MyChaFix_7: -1119046222
+      MyChaFix_8: 671202170
+      MyChaFix_9: -1217312382
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
