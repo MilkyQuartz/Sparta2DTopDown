@@ -7,7 +7,8 @@ public class TopDownMovement : MonoBehaviour
 
     private TopDownController controller;
     private Rigidbody2D movementRigidbody;
-    private Vector2 movementDirection = Vector2.zero;
+    private Vector2 movementDirection;
+    private Animator animator;
 
     // Awake는 주로 내 컴포넌트 안에서 끝나는거
     private void Awake()
@@ -15,6 +16,7 @@ public class TopDownMovement : MonoBehaviour
         // controller랑 TopDownMovement랑 같은 GameObject에 있다라는 가정
         controller = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -26,6 +28,22 @@ public class TopDownMovement : MonoBehaviour
     private void Move(Vector2 direction)
     {
         movementDirection = direction;
+        animator.SetFloat("MoveX", direction.x);
+        animator.SetFloat("MoveY", direction.y);
+
+        // 입력이 들어오면 해당 축에만 값을 할당하고 다른 축에는 0 할당
+        if (direction.x != 0)
+        {
+            // x 값이 0이 아니면 x 축에만 값을 할당하고 y 축에는 0 할당
+            animator.SetFloat("LastMoveX", direction.x);
+            animator.SetFloat("LastMoveY", 0);
+        }
+        else if (direction.y != 0)
+        {
+            // y 값이 0이 아니면 y 축에만 값을 할당하고 x 축에는 0 할당
+            animator.SetFloat("LastMoveX", 0);
+            animator.SetFloat("LastMoveY", direction.y);
+        }
     }
 
     private void FixedUpdate()
