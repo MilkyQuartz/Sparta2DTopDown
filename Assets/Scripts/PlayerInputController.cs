@@ -48,7 +48,7 @@ public class PlayerInputController : TopDownController
         }
         else if (lastDirection.y <= -1)
         {
-            animator.Play("IdleDown", -1, 0f);
+            animator.Play("Idle Down", -1, 0f);
         }
     }
 
