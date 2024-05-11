@@ -34,21 +34,21 @@ public class PlayerInputController : TopDownController
 
     private void SetIdleAnimation(Vector2 lastDirection)
     {
-        if (Mathf.RoundToInt(lastDirection.x) == -1)
+        if (lastDirection.x <= -1)
         {
-            animator.Play("Idle Blend Tree.StandLeft");
+            animator.Play("IdleLeft", -1, 0f);
         }
-        else if (Mathf.RoundToInt(lastDirection.x) == 1)
+        else if (lastDirection.x >= 1)
         {
-            animator.Play("Idle Blend Tree.StandRight");
+            animator.Play("IdleRight", -1, 0f);
         }
-        else if (Mathf.RoundToInt(lastDirection.y) == 1)
+        else if (lastDirection.y >= 1)
         {
-            animator.Play("Idle Blend Tree.StandUp");
+            animator.Play("IdleUp", -1, 0f);
         }
-        else if (Mathf.RoundToInt(lastDirection.y) == -1)
+        else if (lastDirection.y <= -1)
         {
-            animator.Play("Idle Blend Tree.StandDown");
+            animator.Play("IdleDown", -1, 0f);
         }
     }
 

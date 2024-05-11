@@ -57,7 +57,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Move Blend Tree
+  m_Name: Move
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -131,28 +131,28 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MoveY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: LastMoveX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: LastMoveY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
-    m_Name: Base Layer
+    m_Name: Base
     m_StateMachine: {fileID: 7431872158063962954}
     m_Mask: {fileID: 0}
     m_Motions: []
@@ -169,7 +169,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Move
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 4a2dc01d2cc82e8409db87d2d6ad7ff1, type: 2}
@@ -216,10 +216,10 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Idle
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 94d4eb8eac11eec439dc723ef36f2e9a, type: 2}
+    m_Motion: {fileID: 7400000, guid: 45d7e028940ea5b4cb1a635cd3614057, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0.1}
     m_TimeScale: 1
@@ -227,7 +227,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 374c031954ac6914d9afcbeed8c6de29, type: 2}
+    m_Motion: {fileID: 7400000, guid: bc537a74ae1004e45a1df469d66a5fc0, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: 0, y: -0.1}
     m_TimeScale: 1
@@ -235,7 +235,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: c13fcd4dab213ea40b5731346e84b66e, type: 2}
+    m_Motion: {fileID: 7400000, guid: 77019fc1b673e1d4884fec4d6fdaef63, type: 2}
     m_Threshold: 0.6666667
     m_Position: {x: -0.1, y: 0}
     m_TimeScale: 1
@@ -243,7 +243,7 @@ BlendTree:
     m_DirectBlendParameter: MoveX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: c8ffcffb25120ed4f8a2dfefb2f4a232, type: 2}
+    m_Motion: {fileID: 7400000, guid: 81a68738826cdd5419aad6e4baeb1948, type: 2}
     m_Threshold: 1
     m_Position: {x: 0.1, y: 0}
     m_TimeScale: 1
@@ -323,7 +323,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle Blend Tree
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -353,7 +353,7 @@ AnimatorStateMachine:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Base Layer
+  m_Name: Base
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -4826289186584384131}
