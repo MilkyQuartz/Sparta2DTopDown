@@ -10,6 +10,12 @@ public class TopDownMovement : MonoBehaviour
     private Vector2 movementDirection;
     private Animator animator;
 
+
+    // 걷는 애니메이션 전환을 위한 변수들
+    public float walkAnimationThreshold = 0.01f; // 걷는 애니메이션을 전환할 이동량 임계값
+    private float currentWalkDistance = 0f; // 현재 이동한 거리
+
+
     // Awake는 주로 내 컴포넌트 안에서 끝나는거
     private void Awake()
     {
@@ -43,6 +49,23 @@ public class TopDownMovement : MonoBehaviour
             // y 값이 0이 아니면 y 축에만 값을 할당하고 x 축에는 0 할당
             animator.SetFloat("LastMoveX", 0);
             animator.SetFloat("LastMoveY", direction.y);
+        }
+
+        // 이동량이 있는지 확인하여 걷는 애니메이션을 변경
+        if (direction.magnitude > walkAnimationThreshold)
+        {
+            currentWalkDistance += direction.magnitude;
+            if (currentWalkDistance >= walkAnimationThreshold)
+            {
+                // 걸음 수가 임계값 이상이면 애니메이션 전환
+                animator.SetBool("Walking", true);
+                currentWalkDistance = 0f;
+            }
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
+            currentWalkDistance = 0f;
         }
     }
 
