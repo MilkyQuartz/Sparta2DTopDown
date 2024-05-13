@@ -9,6 +9,7 @@ public class SettingsManager : MonoBehaviour
     public Image yellowImage;
     public Image blueImage;
     public GameObject bgSelectImg;
+    public GameObject currentPeopleImg;
     private bool isYellowSelected = false;
     private bool isBlueSelected = false;
 
@@ -31,11 +32,21 @@ public class SettingsManager : MonoBehaviour
         bgSelectImg.SetActive(true);
         isYellowSelected = false;
         isBlueSelected = false;
+
+    }
+
+    public void PeopleBtnClick()
+    {
+        currentPeopleImg.SetActive(true);
     }
 
     public void CloseBtnClick()
     {
         bgSelectImg.SetActive(false);
+    }
+    public void ClosePeopleBtnClick()
+    {
+        currentPeopleImg.SetActive(false);
     }
     public void YellowImageClick()
     {
