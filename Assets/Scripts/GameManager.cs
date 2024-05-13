@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,11 +8,15 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     public GameObject playerContainer;
     public Text timeTxt;
-    public Text playerNameText;
+    public Image bgSelectImg; 
+    public TMP_InputField playerNameInput;
+
+    public Text playerNameText; 
+
+    private GameObject currentCharacterObject; 
 
     private void Awake()
     {
-
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -28,28 +28,62 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        UpdatePlayerInfo();
+    }
+
+    public void UpdatePlayerInfo()
+    {
         string playerName = PlayerPrefs.GetString("PlayerName");
         string selectCharacter = PlayerPrefs.GetString("selectCharacter");
-        float playerPosX = PlayerPrefs.GetFloat("PlayerPositionX");
-        float playerPosY = PlayerPrefs.GetFloat("PlayerPositionY");
-        float playerPosZ = PlayerPrefs.GetFloat("PlayerPositionZ");
 
-        GameObject selectedCharacterPrefab = null;
-
-        if (!string.IsNullOrEmpty(selectCharacter))
-        {
-            // 선택된 캐릭터 프리팹 찾기
-            selectedCharacterPrefab = Resources.Load<GameObject>(selectCharacter);
-        }
+        GameObject selectedCharacterPrefab = Resources.Load<GameObject>(selectCharacter); 
 
         if (selectedCharacterPrefab != null && playerContainer != null)
         {
-            // 플레이어 오브젝트의 자식으로 추가
-            GameObject player = Instantiate(selectedCharacterPrefab, new Vector3(playerPosX, playerPosY, playerPosZ), Quaternion.identity);
+
+            Destroy(currentCharacterObject);
+
+            GameObject player = Instantiate(selectedCharacterPrefab, playerContainer.transform.position, Quaternion.identity);
             player.transform.parent = playerContainer.transform;
 
+            currentCharacterObject = player;
+
+            SetPlayerInfo(selectedCharacterPrefab, playerName);
         }
-        playerNameText.text = playerName;
+    }
+
+    public void SetPlayerInfo(GameObject characterPrefab, string playerName)
+    {
+        UpdatePlayerName(playerName);
+    }
+    public void UpdatePlayerName(string playerName)
+    {
+        playerNameText.text = playerName; 
+    }
+
+    public void ChangeName()
+    {
+        string newName = playerNameInput.text;
+        if (!string.IsNullOrEmpty(newName) && newName.Length >= 2 && newName.Length <= 10)
+        {
+            PlayerPrefs.SetString("PlayerName", newName);
+        }
+        else
+        {
+            Debug.LogWarning("닉네임은 2자 이상, 10자 이하로 입력해주세요.");
+        }
+    }
+
+    public void OnCheckBtnClick()
+    {
+        ChangeName();
+        UpdatePlayerInfo();
+        bgSelectImg.gameObject.SetActive(false); 
+    }
+
+    public void ChangeCharacter(string characterName)
+    {
+        PlayerPrefs.SetString("selectCharacter", characterName);
     }
 
     void Update()
@@ -60,7 +94,6 @@ public class GameManager : MonoBehaviour
 
     public static string GetCurrentTime()
     {
-        return DateTime.Now.ToString(("HH:mm"));
+        return System.DateTime.Now.ToString(("HH:mm"));
     }
-
 }
