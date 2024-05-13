@@ -24,7 +24,6 @@ public class PlayerInputController : TopDownController
         //CallLookEvent(lookDirection);
     }
 
-
     public void OnFire(InputValue value)
     {
         Debug.Log("OnFire" + value.ToString());
