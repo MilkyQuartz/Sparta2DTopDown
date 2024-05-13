@@ -1544,7 +1544,7 @@ MonoBehaviour:
   yellowImage: {fileID: 773674439}
   blueImage: {fileID: 1933242361}
   yellowCharacter: {fileID: 4768152694671422552, guid: beeae3beecd2c7a4fa11bf4219bcc252, type: 3}
-  blueCharacter: {fileID: 4768152694671422552, guid: beeae3beecd2c7a4fa11bf4219bcc252, type: 3}
+  blueCharacter: {fileID: 4768152694671422552, guid: 07217c22a21afaf4b89e93d852a6e64c, type: 3}
 --- !u!4 &1325460757
 Transform:
   m_ObjectHideFlags: 0

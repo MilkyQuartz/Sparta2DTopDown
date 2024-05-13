@@ -9,9 +9,8 @@ public class TopDownMovement : MonoBehaviour
     private Rigidbody2D movementRigidbody;
     private Vector2 movementDirection;
     private Animator animator;
+    private char initial;
 
-
-    // 걷는 애니메이션 전환을 위한 변수들
     public float walkAnimationThreshold = 0.01f; // 걷는 애니메이션을 전환할 이동량 임계값
     private float currentWalkDistance = 0f; // 현재 이동한 거리
 
@@ -22,8 +21,10 @@ public class TopDownMovement : MonoBehaviour
         // controller랑 TopDownMovement랑 같은 GameObject에 있다라는 가정
         controller = GetComponent<TopDownController>();
         movementRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
 
+        animator = GetComponent<Animator>();
+        string selectedCharacterName = PlayerPrefs.GetString("selectCharacter", "");
+        initial = selectedCharacterName[0];
     }
 
     private void Start()
@@ -40,25 +41,29 @@ public class TopDownMovement : MonoBehaviour
         // 입력이 들어오면 해당 축에만 값을 할당하고 다른 축에는 0 할당
         if (direction.x != 0)
         {
-            // x 값이 0이 아니면 x 축에만 값을 할당하고 y 축에는 0 할당
             animator.SetFloat("LastMoveX", direction.x);
             animator.SetFloat("LastMoveY", 0);
         }
         else if (direction.y != 0)
         {
-            // y 값이 0이 아니면 y 축에만 값을 할당하고 x 축에는 0 할당
             animator.SetFloat("LastMoveX", 0);
             animator.SetFloat("LastMoveY", direction.y);
         }
 
-        // 이동량이 있는지 확인하여 걷는 애니메이션을 변경
+        // 대기 애니메이션
+        if (direction.magnitude == 0f)
+        {
+            SetIdleAnimation(direction);
+            return; 
+        }
+
+        // 걷는 애니메이션
         if (direction.magnitude > walkAnimationThreshold)
         {
             currentWalkDistance += direction.magnitude;
             if (currentWalkDistance >= walkAnimationThreshold)
             {
-                // 걸음 수가 임계값 이상이면 애니메이션 전환
-                animator.SetBool("Walking", true);
+                SetWalkAnimation(direction);
                 currentWalkDistance = 0f;
             }
         }
@@ -67,6 +72,91 @@ public class TopDownMovement : MonoBehaviour
             animator.SetBool("Walking", false);
             currentWalkDistance = 0f;
         }
+    }
+
+    private void SetWalkAnimation(Vector2 direction)
+    {
+        string animationName = "";
+
+        float absX = Mathf.Abs(direction.x);
+        float absY = Mathf.Abs(direction.y);
+
+        if (absX > absY)
+        {
+            if (direction.x < 0f)
+            {
+                animationName += initial + "WalkLeft";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+            else if (direction.x > 0f)
+            {
+                animationName += initial + "WalkRight";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+        }
+        else if (absY > absX)
+        {
+            if (direction.y > 0f)
+            {
+                animationName += initial + "WalkUp";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+            else if (direction.y < 0f)
+            {
+                animationName += initial + "WalkDown";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+        }
+        else
+        {
+            animationName += initial + "Walk" + (direction.y > 0f ? "Up" : "Down");
+            Debug.Log("애니메이션 클립 이름: " + animationName);
+        }
+
+        animator.Play(animationName, 0, 0f);
+    }
+
+    private void SetIdleAnimation(Vector2 lastDirection)
+    {
+        Debug.Log("애니메이션 벡터: " + "(x,y)" + lastDirection);
+        string animationName = "";
+
+        float absX = Mathf.Abs(lastDirection.x);
+        float absY = Mathf.Abs(lastDirection.y);
+
+        if (absX > absY)
+        {
+            if (lastDirection.x < 0f)
+            {
+                animationName += initial + "IdleLeft";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+            else if (lastDirection.x > 0f)
+            {
+                animationName += initial + "IdleRight";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+        }
+        else if (absY > absX)
+        {
+            if (lastDirection.y > 0f)
+            {
+                animationName += initial + "IdleUp";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+            else if (lastDirection.y < 0f)
+            {
+                animationName += initial + "IdleDown";
+                Debug.Log("애니메이션 클립 이름: " + animationName);
+            }
+        }
+        else
+        {
+            animationName += initial + "Idle" + (lastDirection.y > 0f ? "Up" : "Down");
+            Debug.Log("애니메이션 클립 이름: " + animationName);
+        }
+
+        animator.Play(animationName, 0, 0f);
     }
 
     private void FixedUpdate()
