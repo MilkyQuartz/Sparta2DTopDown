@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerContainer;
     public Text timeTxt;
     public Text playerNameText;
+    private GameObject playerPrefabInstance;
+
     private void Awake()
     {
 
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour
 
         if (!string.IsNullOrEmpty(selectCharacter))
         {
-            // 선택된 캐릭터 프리팹스에서 이름으로 해당 프리팹을 찾아옵니다.
+            // 선택된 캐릭터 프리팹스에서 이름으로 해당 프리팹을 찾음
             selectedCharacterPrefab = Resources.Load<GameObject>(selectCharacter);
         }
 
@@ -46,6 +48,9 @@ public class GameManager : MonoBehaviour
             // 선택된 캐릭터 프리팹을 플레이어 빈 오브젝트의 자식으로 추가
             GameObject player = Instantiate(selectedCharacterPrefab, new Vector3(playerPosX, playerPosY, playerPosZ), Quaternion.identity);
             player.transform.parent = playerContainer.transform;
+
+            // GameManager를 통해 플레이어 프리팹의 참조를 저장
+            GameManager.Instance.SetPlayerPrefabInstance(player);
         }
         else
         {
@@ -64,5 +69,16 @@ public class GameManager : MonoBehaviour
     public static string GetCurrentTime()
     {
         return DateTime.Now.ToString(("HH:mm"));
+    }
+    // 동적으로 생성된 플레이어 프리팹의 참조를 저장하는 메서드
+    public void SetPlayerPrefabInstance(GameObject playerInstance)
+    {
+        playerPrefabInstance = playerInstance;
+    }
+
+    // 동적으로 생성된 플레이어 프리팹의 참조를 반환하는 메서드
+    public GameObject GetPlayerPrefabInstance()
+    {
+        return playerPrefabInstance;
     }
 }
