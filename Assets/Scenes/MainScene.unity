@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 26274005}
   - component: {fileID: 26274007}
   m_Layer: 5
-  m_Name: Blue
+  m_Name: BluePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -245,8 +245,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1574666757}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: ChangeCharacter
-        m_Mode: 5
+        m_MethodName: BlueImageClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -970,7 +970,7 @@ GameObject:
   - component: {fileID: 365394038}
   - component: {fileID: 365394040}
   m_Layer: 5
-  m_Name: Yellow
+  m_Name: YellowPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,8 +1079,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1574666757}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: ChangeCharacter
-        m_Mode: 5
+        m_MethodName: YellowImageClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19717,7 +19717,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1574666755}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnCheckBtnClick
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20296,7 +20296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerContainer: {fileID: 1574666754}
   timeTxt: {fileID: 486418146}
-  bgSelectImg: {fileID: 1180577187}
+  bgSelectImg: {fileID: 1180577185}
   playerNameInput: {fileID: 240164641}
   playerNameText: {fileID: 455813524}
 --- !u!4 &1574666756

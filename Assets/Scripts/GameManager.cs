@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return _instance; } }
     public GameObject playerContainer;
     public Text timeTxt;
-    public Image bgSelectImg; 
+    public GameObject bgSelectImg; 
     public TMP_InputField playerNameInput;
 
     public Text playerNameText; 
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         if (!string.IsNullOrEmpty(newName) && newName.Length >= 2 && newName.Length <= 10)
         {
             PlayerPrefs.SetString("PlayerName", newName);
+            UpdatePlayerName(newName); 
         }
         else
         {
@@ -74,11 +75,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnCheckBtnClick()
+    public void OnCheckBtnClick(string characterName)
     {
         ChangeName();
+        ChangeCharacter(characterName);
         UpdatePlayerInfo();
-        bgSelectImg.gameObject.SetActive(false); 
+        bgSelectImg.SetActive(false);
     }
 
     public void ChangeCharacter(string characterName)
