@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
 
     public Text playerNameText; 
 
-    private GameObject currentCharacterObject; 
+    private GameObject currentCharacterObject;
+    private bool isInputActive = false;
 
     private void Awake()
     {
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
         ChangeName();
         ChangeCharacter(characterName);
         UpdatePlayerInfo();
+        isInputActive = false;
         bgSelectImg.SetActive(false);
     }
 
@@ -97,5 +99,13 @@ public class GameManager : MonoBehaviour
     public static string GetCurrentTime()
     {
         return System.DateTime.Now.ToString(("HH:mm"));
+    }
+    public void SetIsInputActive(bool isActive)
+    {
+        isInputActive = isActive;
+    }
+    public bool GetIsInputActive()
+    {
+        return isInputActive;
     }
 }

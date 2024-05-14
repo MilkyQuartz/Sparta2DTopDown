@@ -10,6 +10,7 @@ public class SettingsManager : MonoBehaviour
     public Image blueImage;
     public GameObject bgSelectImg;
     public GameObject currentPeopleImg;
+    public TMP_InputField playerNameInput;
     private bool isYellowSelected = false;
     private bool isBlueSelected = false;
 
@@ -29,6 +30,10 @@ public class SettingsManager : MonoBehaviour
 
     public void SettingBtnClick()
     {
+        gameManager.SetIsInputActive(true);
+        playerNameInput.text = "";
+        blueImage.color = Color.white;
+        yellowImage.color = Color.white;
         bgSelectImg.SetActive(true);
         isYellowSelected = false;
         isBlueSelected = false;
@@ -40,9 +45,10 @@ public class SettingsManager : MonoBehaviour
         currentPeopleImg.SetActive(true);
     }
 
-    public void CloseBtnClick()
+    public void CloseSetBtnClick()
     {
         bgSelectImg.SetActive(false);
+        gameManager.SetIsInputActive(false);
     }
     public void ClosePeopleBtnClick()
     {
@@ -50,7 +56,7 @@ public class SettingsManager : MonoBehaviour
     }
     public void YellowImageClick()
     {
-        yellowImage.color = Color.green; 
+        yellowImage.color = Color.yellow; 
         blueImage.color = Color.white;   
         isYellowSelected = true;         
         isBlueSelected = false;          
@@ -59,7 +65,7 @@ public class SettingsManager : MonoBehaviour
 
     public void BlueImageClick()
     {
-        blueImage.color = Color.green;   
+        blueImage.color = Color.blue;   
         yellowImage.color = Color.white; 
         isBlueSelected = true;           
         isYellowSelected = false;        

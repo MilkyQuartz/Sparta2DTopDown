@@ -34,6 +34,13 @@ public class TopDownMovement : MonoBehaviour
 
     private void Move(Vector2 direction)
     {
+        // 입력 중이면 이동을 멈춤
+        if (GameManager.Instance.GetIsInputActive())
+        {
+            movementDirection = Vector2.zero;
+            animator.SetBool("Walking", false);
+            return;
+        }
         movementDirection = direction;
         animator.SetFloat("MoveX", direction.x);
         animator.SetFloat("MoveY", direction.y);
